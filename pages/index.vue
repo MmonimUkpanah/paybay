@@ -3,7 +3,7 @@
     <Navbar/>
     <div class="header">
       <div class="mgm" style="display: none;">
-        <div class="txt" style="color:black;">Someone from <b></b> just bought <a href="javascript:void(0);" onclick="javascript:void(0);"></a></div>
+        <div class="txt" style="color:black;">Someone from <b></b> just made an investment of <a href="javascript:void(0);" onclick="javascript:void(0);"></a></div>
       </div>
       <div class="header-left">
         <h1>Invest in what you believe in </h1>
@@ -416,7 +416,7 @@ function request() {
     interval = Math.floor(Math.random() * (40000 - 8000 + 1) + 8000);
     var country = listCountries[Math.floor(Math.random() * listCountries.length)];
     var plan = listPlans[Math.floor(Math.random() * listPlans.length)];
-    var msg = 'Someone from <b>' + country + '</b> just cashed out <strong href="javascript:void(0);" onclick="javascript:void(0);">' + ' </strong>';
+    var msg = 'Someone from <b>' + country + '</b> just made an investment of <strong href="javascript:void(0);" onclick="javascript:void(0);">' + ' </strong>';
     $(".mgm .txt").html(msg);
     $(".mgm").stop(true).fadeIn(.5);
     window.setTimeout(function() {

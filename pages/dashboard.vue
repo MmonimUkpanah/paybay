@@ -65,9 +65,9 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">ID</th>
+                        <th scope="col">Symbol</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Price($)</th>
+                        <th scope="col">Price</th>
                         </tr>
                     </thead>
                     <tbody v-for="(crypto , index) in computedCrypto" :key="index">
@@ -75,8 +75,10 @@
                         <th scope="row">{{index}}</th>
                         <td>{{crypto.asset_id}}</td>
                         <td>{{crypto.name}}</td>
-                        <td>{{crypto.price_usd}}</td>
-                        </tr>
+                        <td>${{crypto.price_usd}}</td>
+                        <td><a href="deposit"><button class="buy">Buy now</button></a></td>
+                        <td><a href="deposit"><button class="sell">Sell</button></a></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -177,7 +179,7 @@ export default {
         box-sizing: border-box;
     }
     .dash{
-        background: #f5f5f5;
+        background: rgb(26, 26, 34);
         min-height: 800vh;
         margin-top: 2.5rem;
     }
@@ -322,6 +324,24 @@ export default {
     table{
         background:white;
     
+    }
+    .buy{
+        background: #16a858;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    .sell{
+        background: red;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    hr{
+        margin-top: 5rem !important;
+        color: white !important;
     }
 
 
