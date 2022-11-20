@@ -119,11 +119,20 @@ export default {
           console.log(error);
         }
       },
+      async getCrypto() {
+        const res = await this.$axios.get('https://api.swapzone.io/v1/exchange/currencies', {
+            headers: {
+                'x-api-key': 'ZPJmc1q3G'
+            }
+            });
+        console.log(res)
+      },
   },
 
   mounted() {
     this.getCommodities(),
-    this.getPortfolio()
+    this.getPortfolio(),
+    this.getCrypto()
   },
 };
 </script>
