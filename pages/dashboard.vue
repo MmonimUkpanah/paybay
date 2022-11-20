@@ -58,6 +58,30 @@
             </div>
         </div>
         <hr class="mover-hr">
+        <div class="crypto">
+            <h2>Crypto Prices</h2>
+            <div class="table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price($)</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="(crypto , index) in computedCrypto" :key="index">
+                        <tr>
+                        <th scope="row">{{index}}</th>
+                        <td>{{crypto.asset_id}}</td>
+                        <td>{{crypto.name}}</td>
+                        <td>{{crypto.price_usd}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
         <!-- <div class="two-factor">
             <div class="two-factor-img">
                 <img src="2fa.svg" alt="">
@@ -93,8 +117,16 @@ export default {
         com4:{},
       baseUrl: "https://paybay-invest.herokuapp.com/api/",
       portfolio:{},
-      value:''
+      value:'',
+      crypto_data:[],
+      limit: 50
     };
+  },
+  computed:{
+    computedCrypto(){
+    return this.limit ? this.crypto_data.slice(0,this.limit) : this.crypto_data
+  }
+
   },
   methods: {
     async getCommodities() {
@@ -119,20 +151,21 @@ export default {
           console.log(error);
         }
       },
-      async getCrypto() {
-        const res = await this.$axios.get('https://api.swapzone.io/v1/exchange/currencies', {
+      async getRate() {
+        const res = await this.$axios.get('https://rest.coinapi.io/v1/assets', {
             headers: {
-                'x-api-key': 'ZPJmc1q3G'
+                'X-CoinAPI-Key': 'B889A10D-1B65-4EC8-B626-55F0AE723234'
             }
             });
-        console.log(res)
+        console.log(res.data)
+        this.crypto_data= res.data
       },
   },
 
   mounted() {
     this.getCommodities(),
     this.getPortfolio(),
-    this.getCrypto()
+    this.getRate()
   },
 };
 </script>
@@ -145,7 +178,7 @@ export default {
     }
     .dash{
         background: #f5f5f5;
-        height: 120vh;
+        min-height: 800vh;
         margin-top: 2.5rem;
     }
     .movers{
@@ -275,6 +308,21 @@ export default {
     border-radius: 5px;
     
     }
+    .crypto{
+        margin: 5rem 10rem;
+        background: white;
+    }
+    .crypto h2{
+        color: #16a858;
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    table{
+        background:white;
+    
+    }
 
 
     @media(max-width:576px){
@@ -316,6 +364,10 @@ export default {
         grid-template-columns: 1fr;
         row-gap: 1rem;
     }
+    .crypto{
+        margin: 5rem 10px;
+        background: white;
+    }
     }
 
 
@@ -356,6 +408,10 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr;
         row-gap: 1rem;
+    }
+    .crypto{
+        margin: 5rem 10px;
+        background: white;
     }
 
     }
