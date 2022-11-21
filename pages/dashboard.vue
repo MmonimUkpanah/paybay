@@ -55,8 +55,8 @@
             </div>     
             <div class="movers-cards" style="background-color:#fdedd4;">
                 <p  style="color:#000">{{com4.name}}</p>
-                <h6 style="color:#000">Price: ${{com4.price}}</h6>
-                <h6 style="color:#000">Return: ${{com4.expected_return}}</h6>
+                <h6 style="color:#000">Minimum investment amount: ${{com4.price}}</h6>
+                <h6 style="color:#000">Expected return: ${{com4.expected_return}}</h6>
                 <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
@@ -72,7 +72,7 @@
             <hr>
             <div class="dash-rightsidebar-buy">
                 <div class="dash-rightsidebar-buy-button">
-                    <button>BUY</button>
+                    <a href="deposit"><button>BUY</button></a>
                 </div>
                 <div class="dash-rightsidebar-buy-text"  v-for="(crypto , index) in computedCrypto" :key="index">
                     <p>{{crypto.asset_id}} ${{crypto.price_usd}}</p>
@@ -196,7 +196,7 @@ export default {
       portfolio:{},
       value:'',
       crypto_data:[],
-      limit: 10
+      limit: 8
     };
   },
   computed:{
@@ -472,7 +472,7 @@ export default {
         position: fixed;
         margin-left: 82%;
         border-radius: 5px;
-        
+        overflow: scroll;
     }
     .dash-rightsidebar-header{
         padding: 1rem;
