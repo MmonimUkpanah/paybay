@@ -8,7 +8,83 @@
         <div style="height:2rem">
 
         </div>
-        <div class="action">
+        <div class="dash-leftsidebar">
+            <div class="dash-leftsidebar-header">
+                <div class="dash-leftsidebar-header-img">
+                    
+                    <div class="dash-leftsidebar-header-text">
+                    <h6>Welcome, {{$auth.user.first_name}} {{$auth.user.surname}}.</h6>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="dash-leftsidebar-general">
+                <div>
+                    <p>General</p>
+                </div>
+                <div class="dash-leftsidebar-general-menu">
+                    <p><font-awesome-icon class="icon" :icon="['fa', 'home']" /> Home</p>
+                    <p><font-awesome-icon class="icon" :icon="['fa', 'server']" /> Farms</p>
+                    <p><font-awesome-icon class="icon" :icon="['fa', 'clock']" /> Pools</p>
+                    <p><font-awesome-icon class="icon" :icon="['fa', 'exchange']" /> Exchange</p>
+                </div>
+            </div>
+        </div>
+        <div class="dash-center">
+            <div class="movers-card" >
+            <div class="movers-cards" style="background-color:blue">
+                <p>{{com1.name}}</p>
+                <h6>Price: ${{com1.price}}</h6>
+                <h6>Return: ${{com1.expected_return}}</h6>
+                <h6>% Change: {{com1.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+            <div class="movers-cards" style="background-color:goldenrod">
+                <p>{{com3.name}}</p>
+                <h6>Price: ${{com3.price}}</h6>
+                <h6>Return: ${{com3.expected_return}}</h6>
+                <h6>% Change: {{com3.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+            <div class="movers-cards" style="background-color:silver">
+                <p>{{com2.name}}</p>
+                <h6>Price: ${{com2.price}}</h6>
+                <h6>Return: ${{com2.expected_return}}</h6>
+                <h6>% Change: {{com2.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+            
+            <div class="movers-cards" style="background-color:#E5E4E2;color: #000;">
+                <p  style="color:#000">{{com4.name}}</p>
+                <h6 style="color:#000">Price: ${{com4.price}}</h6>
+                <h6 style="color:#000">Return: ${{com4.expected_return}}</h6>
+                <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
+               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+            </div>
+        </div>
+        </div>
+        <div class="dash-rightsidebar">
+            <div class="dash-rightsidebar-header">
+                <div class="dash-rightsidebar-header-text">
+                    <p>YOUR BALANCE</p>
+                    <h3>${{value}}</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="dash-rightsidebar-buy">
+                <div class="dash-rightsidebar-buy-button">
+                    <button>BUY</button>
+                </div>
+                <div class="dash-rightsidebar-buy-text"  v-for="(crypto , index) in computedCrypto" :key="index">
+                    <p>{{crypto.asset_id}} ${{crypto.price_usd}}</p>
+                </div>
+                <div class="dash-rightsidebar-buy-proceed">
+                    <a href="deposit"><button>Proceed to Buy</button></a>
+                    <a href="assets"><button>Other Assets</button></a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="action">
             <div class="action-great">
                 <h2>Hi {{$auth.user.first_name}}, great to see you here!</h2>
                 
@@ -17,16 +93,16 @@
                 <h2>Your balance: ${{value}}</h2>
                 
             </div>
-        </div>
-        <div class="movers">
+        </div> -->
+        <!-- <div class="movers">
             <div class="movers-top">
                 <h4>Top movers</h4>
             </div>
            <div class="movers-view">
                 <h4>View all assets</h4>
            </div>
-        </div>
-        <div class="movers-card" >
+        </div> -->
+        <!-- <div class="movers-card" >
             <div class="movers-cards" style="background-color:blue">
                 <p>{{com1.name}}</p>
                 <h6>Price: ${{com1.price}}</h6>
@@ -56,8 +132,8 @@
                 <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-        </div>
-        <hr class="mover-hr">
+        </div> -->
+        <!-- <hr class="mover-hr">
         <div class="crypto">
             <h2>Crypto Prices</h2>
             <div class="table-responsive">
@@ -83,7 +159,7 @@
                 </table>
             </div>
             
-        </div>
+        </div> -->
         <!-- <div class="two-factor">
             <div class="two-factor-img">
                 <img src="2fa.svg" alt="">
@@ -121,7 +197,7 @@ export default {
       portfolio:{},
       value:'',
       crypto_data:[],
-      limit: 50
+      limit: 10
     };
   },
   computed:{
@@ -180,7 +256,7 @@ export default {
     }
     .dash{
         background: rgb(26, 26, 34);
-        min-height: 800vh;
+        height: 88.5vh;
         margin-top: 2.5rem;
     }
     .movers{
@@ -200,11 +276,12 @@ export default {
     }
     .movers-card{
         margin-top: 1rem;
-        margin-left: 10rem;
-        margin-right: 10rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         column-gap: 1rem;
+        row-gap: 1rem;
     }
     .movers-cards{
         background: white;
@@ -339,28 +416,128 @@ export default {
         border-radius: 5px;
         border: none;
     }
-    hr{
-        margin-top: 5rem !important;
-        color: white !important;
+  
+    .dash-leftsidebar{
+        width:18%;
+        background: white;
+        height: 100vh;
+        position: fixed;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+    .dash-leftsidebar-header{
+        background: #f5f5f5;
+        padding: 0.5rem;
+        border-radius: 5px;
+        
+    }
+    .dash-leftsidebar-header-img img{
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+    }
+    
+    .dash-leftsidebar-general{
+        margin-top: 1rem;
+    }
+    .dash-leftsidebar-general p{
+        font-weight: 600;
+    }
+    .dash-leftsidebar-general-menu{
+        margin-top: 1rem;
+    }
+    .dash-leftsidebar-general-menu .icon{
+        margin-right: 0.5rem;
+    }
+    .dash-leftsidebar-general-menu p{
+        margin-bottom: 1rem;
+    }
+    .dash-leftsidebar-general-menu p:hover{
+        background: rgb(26, 26, 34);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+    .dash-center{
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        position: fixed;
+    }
+    .dash-rightsidebar{
+        width: 18%;
+        background: white;
+        height: 100vh;
+        position: fixed;
+        margin-left: 82%;
+        border-radius: 5px;
+        
+    }
+    .dash-rightsidebar-header{
+        padding: 1rem;
+    }
+    .dash-rightsidebar-header-img{
+        text-align: center;
+    } 
+    .dash-rightsidebar-header-img img{
+        border-radius: 50%;
+        height: 5rem;
+        width: 5rem;
+        padding: 3px;
+        border: 2px solid #f5f5f5;
+    }
+    .dash-rightsidebar-header-text{
+        text-align: center;
+    }
+    .dash-rightsidebar-header-text p{
+        font-size: 12px;
+        color: #918f8f;
+        margin-top: 0.5rem;
+    }
+    .dash-rightsidebar-header-text h3{
+        margin-top: 0.5rem;
+    }
+    .dash-rightsidebar-buy{
+        padding: 1rem;
+    }
+    .dash-rightsidebar-buy-button button{
+        background: rgb(26, 26, 34);
+        color: white;
+        padding: 2px 10px;
+        border-radius: 5px;
+    }
+    .dash-rightsidebar-buy-text p{
+        color: rgb(26, 26, 34);
+        font-weight: 600;
+    }
+    .dash-rightsidebar-buy-proceed button{
+        display: block;
+        width: 100%;
+        background:rgb(26, 26, 34) ;
+        padding: 5px 10px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 0.5rem;
     }
 
 
     @media(max-width:576px){
         .dash{
-        background: #f5f5f5;
+        background: rgb(26, 26, 34);
         height: auto;
         margin-top: 2.5rem;
     }
         .movers{
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
        display: grid;
        grid-template-columns: 1fr 1fr;
     }
     .movers-card{
         margin-top: 1rem;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
         display: grid;
         grid-template-columns: 1fr;
         row-gap: 1rem;
@@ -388,13 +565,49 @@ export default {
         margin: 5rem 10px;
         background: white;
     }
+    .dash-leftsidebar{
+        width:100%;
+        background: white;
+        height: auto;
+        position: static;
+        border-radius: 0px;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .dash-leftsidebar-header{
+        background: #f5f5f5;
+        padding: 0.5rem;
+        border-radius: 5px;
+        
+    }
+    .dash-center{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        position: static;
+    }
+    .dash-rightsidebar{
+        width: 100%;
+        background: white;
+        height: auto;
+        position: static;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 0px;
+        margin-top: 1rem;
+    }
+    .dash-rightsidebar-header{
+        padding: 10px;
+    }
+    
     }
 
 
 
     @media(min-width:577px) and (max-width:1200px){
         .dash{
-        background: #f5f5f5;
+        background: rgb(26, 26, 34);
         height: auto;
         margin-top: 2.5rem;
     }
@@ -433,6 +646,41 @@ export default {
         margin: 5rem 10px;
         background: white;
     }
-
+    .dash-leftsidebar{
+        width:100%;
+        background: white;
+        height: auto;
+        position: static;
+        border-radius: 0px;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .dash-leftsidebar-header{
+        background: #f5f5f5;
+        padding: 0.5rem;
+        border-radius: 5px;
+        
+    }
+    .dash-center{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        position: static;
+    }
+    .dash-rightsidebar{
+        width: 100%;
+        background: white;
+        height: auto;
+        position: static;
+        margin-left: 0px;
+        margin-right: 0px;
+        border-radius: 0px;
+        margin-top: 1rem;
+    }
+    .dash-rightsidebar-header{
+        padding: 10px;
+    }
+    
     }
 </style>

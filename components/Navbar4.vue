@@ -14,6 +14,9 @@
                     <li class="nav-item">
                     <nuxt-link class="nav-link" to="portfolio">Portfolio</nuxt-link>
                     </li>
+                    <li class="nav-item">
+                    <nuxt-link class="nav-link" to="assets">Assets</nuxt-link>
+                    </li>
                     
                 </ul>
                 <form class="d-flex button-group" role="search">
