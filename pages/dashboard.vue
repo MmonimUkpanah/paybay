@@ -32,29 +32,28 @@
         </div>
         <div class="dash-center">
             <div class="movers-card" >
-            <div class="movers-cards" style="background-color:blue">
+            <div class="movers-cards" style="background-color: #e1f9f1;">
                 <p>{{com1.name}}</p>
                 <h6>Price: ${{com1.price}}</h6>
                 <h6>Return: ${{com1.expected_return}}</h6>
                 <h6>% Change: {{com1.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-            <div class="movers-cards" style="background-color:goldenrod">
+            <div class="movers-cards" style="background-color:#F0E68C;">
                 <p>{{com3.name}}</p>
                 <h6>Price: ${{com3.price}}</h6>
                 <h6>Return: ${{com3.expected_return}}</h6>
                 <h6>% Change: {{com3.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-            <div class="movers-cards" style="background-color:silver">
+            <div class="movers-cards" style="background-color:silver;">
                 <p>{{com2.name}}</p>
                 <h6>Price: ${{com2.price}}</h6>
                 <h6>Return: ${{com2.expected_return}}</h6>
                 <h6>% Change: {{com2.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
-            </div>
-            
-            <div class="movers-cards" style="background-color:#E5E4E2;color: #000;">
+            </div>     
+            <div class="movers-cards" style="background-color:#fdedd4;">
                 <p  style="color:#000">{{com4.name}}</p>
                 <h6 style="color:#000">Price: ${{com4.price}}</h6>
                 <h6 style="color:#000">Return: ${{com4.expected_return}}</h6>
@@ -255,7 +254,7 @@ export default {
         box-sizing: border-box;
     }
     .dash{
-        background: rgb(26, 26, 34);
+        background: #fcfcfc;
         height: 88.5vh;
         margin-top: 2.5rem;
     }
@@ -286,15 +285,17 @@ export default {
     .movers-cards{
         background: white;
         padding: 2rem;
-        color: white;
+        color: rgb(26, 26, 34);
+        border-radius: 5px;
     }
     .movers-cards h6{
         margin-bottom: 0.5rem;
-        color: white;
+        color: rgb(26, 26, 34);
     }
     .movers-cards p{
         font-weight: 600;
         margin-bottom: 0.5rem;
+        color: rgb(26, 26, 34);
     }
     .movers-cards button{
         background: #16a858;
@@ -419,15 +420,15 @@ export default {
   
     .dash-leftsidebar{
         width:18%;
-        background: white;
+        background: #f8fafc;
         height: 100vh;
         position: fixed;
         border-radius: 5px;
         padding: 1rem;
     }
     .dash-leftsidebar-header{
-        background: #f5f5f5;
-        padding: 0.5rem;
+        background: #f3f4f6;
+        padding: 1rem;
         border-radius: 5px;
         
     }
@@ -466,7 +467,7 @@ export default {
     }
     .dash-rightsidebar{
         width: 18%;
-        background: white;
+        background: #f8fafc;
         height: 100vh;
         position: fixed;
         margin-left: 82%;
@@ -524,7 +525,7 @@ export default {
 
     @media(max-width:576px){
         .dash{
-        background: rgb(26, 26, 34);
+        background: #fcfcfc;
         height: auto;
         margin-top: 2.5rem;
     }
@@ -567,7 +568,7 @@ export default {
     }
     .dash-leftsidebar{
         width:100%;
-        background: white;
+        background: #f8fafc;
         height: auto;
         position: static;
         border-radius: 0px;
@@ -576,8 +577,8 @@ export default {
         margin-right: 0px;
     }
     .dash-leftsidebar-header{
-        background: #f5f5f5;
-        padding: 0.5rem;
+        background: #f3f4f6;
+        padding: 1rem;
         border-radius: 5px;
         
     }
@@ -589,13 +590,14 @@ export default {
     }
     .dash-rightsidebar{
         width: 100%;
-        background: white;
+        background: #f8fafc;
         height: auto;
         position: static;
         margin-left: 0px;
         margin-right: 0px;
         border-radius: 0px;
         margin-top: 1rem;
+        text-align: center;
     }
     .dash-rightsidebar-header{
         padding: 10px;
@@ -607,7 +609,7 @@ export default {
 
     @media(min-width:577px) and (max-width:1200px){
         .dash{
-        background: rgb(26, 26, 34);
+        background: #fcfcfc;
         height: auto;
         margin-top: 2.5rem;
     }
@@ -648,7 +650,7 @@ export default {
     }
     .dash-leftsidebar{
         width:100%;
-        background: white;
+        background: #f8fafc;
         height: auto;
         position: static;
         border-radius: 0px;
@@ -657,8 +659,8 @@ export default {
         margin-right: 0px;
     }
     .dash-leftsidebar-header{
-        background: #f5f5f5;
-        padding: 0.5rem;
+        background: #f3f4f6;
+        padding: 1rem;
         border-radius: 5px;
         
     }
@@ -670,7 +672,7 @@ export default {
     }
     .dash-rightsidebar{
         width: 100%;
-        background: white;
+        background: #f8fafc;
         height: auto;
         position: static;
         margin-left: 0px;
