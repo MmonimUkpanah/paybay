@@ -29,7 +29,7 @@
         </div>
         <div class="lead-img">
             <img src="lead2.jpg" alt=""> 
-            <p>Stanley Chukwuemeka</p>
+            <p>Morgan Freeman</p>
             <p>HR</p>
         </div>
     </div>

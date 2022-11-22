@@ -34,22 +34,22 @@
             <div class="movers-card" >
             <div class="movers-cards" style="background-color: #e1f9f1;">
                 <p>{{com1.name}}</p>
-                <h6>Price: ${{com1.price}}</h6>
-                <h6>Return: ${{com1.expected_return}}</h6>
+                <h6>Minimum investment amount: ${{com1.price}}</h6>
+                <h6>Expected return: ${{com1.expected_return}}</h6>
                 <h6>% Change: {{com1.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards" style="background-color:#F0E68C;">
                 <p>{{com3.name}}</p>
-                <h6>Price: ${{com3.price}}</h6>
-                <h6>Return: ${{com3.expected_return}}</h6>
+                <h6>Minimum investment amount: ${{com3.price}}</h6>
+                <h6>Expected return: ${{com3.expected_return}}</h6>
                 <h6>% Change: {{com3.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards" style="background-color:silver;">
                 <p>{{com2.name}}</p>
-                <h6>Price: ${{com2.price}}</h6>
-                <h6>Return: ${{com2.expected_return}}</h6>
+                <h6>Minimum investment amount: ${{com2.price}}</h6>
+                <h6>Expected return: ${{com2.expected_return}}</h6>
                 <h6>% Change: {{com2.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>     
@@ -196,15 +196,32 @@ export default {
       portfolio:{},
       value:'',
       crypto_data:[],
-      limit: 8
+      limit: 8,
+      info:[]
     };
   },
   computed:{
-    computedCrypto(){
-    return this.limit ? this.crypto_data.slice(0,this.limit) : this.crypto_data
-  }
+    
 
-  },
+// constructor(limit) {
+//   this.crypto_data = [...Array(10).keys()].map(() => ({ price_usd: Math.random() * 10 }));
+//   this.limit = limit ?? 0;
+// },
+
+computedCrypto() {
+  const data = this.limit ? this.crypto_data.slice(1, this.limit) : this.crypto_data.slice();
+  for (let index = 0; index < data.length; index++) {
+    data[index] = {
+      ...data[index],
+      price_usd: data[index].price_usd.toFixed(2)
+    };
+  }
+  return data;
+}
+},
+
+
+ 
   methods: {
     async getCommodities() {
       try {
@@ -237,6 +254,7 @@ export default {
         console.log(res.data)
         this.crypto_data= res.data
       },
+      
   },
 
   mounted() {
@@ -244,6 +262,7 @@ export default {
     this.getPortfolio(),
     this.getRate()
   },
+  
 };
 </script>
 
