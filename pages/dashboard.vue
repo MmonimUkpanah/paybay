@@ -8,7 +8,8 @@
         <div style="height:2rem">
 
         </div>
-        <div class="dash-leftsidebar">
+        <div class="father">
+            <div class="dash-leftsidebar">
             <div class="dash-leftsidebar-header">
                 <div class="dash-leftsidebar-header-img">
                     
@@ -31,6 +32,11 @@
             </div>
         </div>
         <div class="dash-center">
+            <div>
+                <client-only>
+                    <Chart/>
+                </client-only>
+            </div>
             <div class="movers-card" >
             <div class="movers-cards" style="background-color: #e1f9f1;">
                 <p>{{com1.name}}</p>
@@ -60,14 +66,11 @@
                 <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-            <div>
-                <client-only>
-                    <Chart/>
-                    
-                </client-only>
-                
-            </div>
-            <div class="dash-rightsidebar">
+            
+            
+        </div>
+        </div>
+        <div class="dash-rightsidebar">
             <div class="dash-rightsidebar-header">
                 <div class="dash-rightsidebar-header-text">
                     <p>YOUR BALANCE</p>
@@ -87,7 +90,6 @@
                     <a href="assets"><button>Other Assets</button></a>
                 </div>
             </div>
-        </div>
         </div>
         </div>
         
@@ -486,12 +488,13 @@ computedCrypto() {
     }
   
     .dash-leftsidebar{
-        width:19%;
         background: #f8fafc;
-        height: 100vh;
-        position: fixed;
         border-radius: 5px;
         padding: 1rem;
+        position: fixed;
+        width: 20%;
+        height: 88.5vh;
+        margin-right: 60%;
     }
     .dash-leftsidebar-header{
         background: #f3f4f6;
@@ -527,14 +530,18 @@ computedCrypto() {
         border-radius: 5px;
     }
     .dash-center{
-        width: 79%;
-        margin-left: 20%;
-        margin-right: 1%;
-        
+       margin-left: 20%;
+       width: 60%;
+        position: absolute;
     }
     .dash-rightsidebar{
        text-align: center;
         border-radius: 5px;
+        background: #f8fafc;
+        position: fixed;
+        margin-left: 80%;
+        width: 20%;
+        height: 88.5vh;
         
     }
     .dash-rightsidebar-header{
@@ -584,9 +591,19 @@ computedCrypto() {
         border-radius: 5px;
         margin-top: 0.5rem;
     }
+    .father{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-gap: 2rem;
+    }
 
 
     @media(max-width:576px){
+        .father{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
         .dash{
         background: #fcfcfc;
         height: auto;
@@ -671,6 +688,11 @@ computedCrypto() {
 
 
     @media(min-width:577px) and (max-width:1200px){
+        .father{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
         .dash{
         background: #fcfcfc;
         height: auto;

@@ -32,6 +32,15 @@ export default {
       },
       {
          src: "js/vendor/jquery-1.12.4.min.js"
+      },
+      {
+        src: "https://cdn.amcharts.com/lib/5/index.js"
+      },
+      {
+        src: "https://cdn.amcharts.com/lib/5/xy.js"
+      },
+      {
+        src: "https://cdn.amcharts.com/lib/5/themes/Animated.js"
       }
     ]
   },
@@ -49,7 +58,12 @@ export default {
     { src: '~/plugins/axios.js', ssr: false },
     {src:"~/plugins/element-ui.js",ssr: false },
     { src: '~/plugins/jquery.min.js', ssr: false },
-    { src: '~/plugins/chart.js', mode: 'client' }
+    { src: '~/plugins/chart.js', mode: 'client' },
+    {
+      src: '~/plugins/amCharts.js',
+      ssr: false
+    },{ src : '~/plugins/vue-apexchart.js', ssr : false },
+    
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -136,6 +150,14 @@ export default {
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
       })
-    ]
+    ],
+    vendor : [
+			'vue-apexchart'
+    ],
+    /*
+     ** You can extend webpack config here
+     */
+    
+    
   }
 }
