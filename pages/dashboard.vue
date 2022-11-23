@@ -60,9 +60,14 @@
                 <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
-        </div>
-        </div>
-        <div class="dash-rightsidebar">
+            <div>
+                <client-only>
+                    <Chart/>
+                    
+                </client-only>
+                
+            </div>
+            <div class="dash-rightsidebar">
             <div class="dash-rightsidebar-header">
                 <div class="dash-rightsidebar-header-text">
                     <p>YOUR BALANCE</p>
@@ -83,6 +88,9 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        
         <!-- <div class="action">
             <div class="action-great">
                 <h2>Hi {{$auth.user.first_name}}, great to see you here!</h2>
@@ -182,10 +190,14 @@
 // import "vue-form-wizard/dist/vue-form-wizard.min.css";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+  
+  
 export default {
   components: {
     ElementUI,
+   
   },
+  
   data() {
     return {
         com1:{},
@@ -195,9 +207,34 @@ export default {
       baseUrl: "https://paybay-invest.herokuapp.com/api/",
       portfolio:{},
       value:'',
+      items:[],
+      dates:[],
+      prices:[],
       crypto_data:[],
       limit: 8,
-      info:[]
+      info:[],
+      chartData: {
+          labels: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July'
+          ],
+          datasets: [
+            {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [40, 39, 10, 40, 39, 80, 40]
+            }
+          ]
+        },
+        chartOptions: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
     };
   },
   computed:{
@@ -254,6 +291,16 @@ computedCrypto() {
         console.log(res.data)
         this.crypto_data= res.data
       },
+    //   async getItems() {
+    //     try {
+    //       const response = await this.$axios.get(this.baseUrl + "items/");
+    //       this.items = response.data;
+    //       this.dates = this.items.map(item => item.date);
+    //       this.prices = this.items.map(item => item.value);
+    //     } catch (error) {
+    //       console.log(error);   
+    //     }
+    //   },
       
   },
 
@@ -261,6 +308,7 @@ computedCrypto() {
     this.getCommodities(),
     this.getPortfolio(),
     this.getRate()
+    // this.getItems()
   },
   
 };
@@ -274,7 +322,7 @@ computedCrypto() {
     }
     .dash{
         background: #fcfcfc;
-        height: 88.5vh;
+        height: auto;
         margin-top: 2.5rem;
     }
     .movers{
@@ -438,7 +486,7 @@ computedCrypto() {
     }
   
     .dash-leftsidebar{
-        width:18%;
+        width:19%;
         background: #f8fafc;
         height: 100vh;
         position: fixed;
@@ -479,19 +527,15 @@ computedCrypto() {
         border-radius: 5px;
     }
     .dash-center{
-        width: 60%;
+        width: 79%;
         margin-left: 20%;
-        margin-right: 20%;
-        position: fixed;
+        margin-right: 1%;
+        
     }
     .dash-rightsidebar{
-        width: 18%;
-        background: #f8fafc;
-        height: 100vh;
-        position: fixed;
-        margin-left: 82%;
+       text-align: center;
         border-radius: 5px;
-        overflow: scroll;
+        
     }
     .dash-rightsidebar-header{
         padding: 1rem;

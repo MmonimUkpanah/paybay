@@ -48,7 +48,8 @@ export default {
     { src: '~/plugins/uikit.js', ssr: false },
     { src: '~/plugins/axios.js', ssr: false },
     {src:"~/plugins/element-ui.js",ssr: false },
-    { src: '~/plugins/jquery.min.js', ssr: false }
+    { src: '~/plugins/jquery.min.js', ssr: false },
+    { src: '~/plugins/chart.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
