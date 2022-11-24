@@ -43,6 +43,7 @@
                 <h6>Minimum investment amount: ${{com1.price}}</h6>
                 <h6>Expected return: ${{com1.expected_return}}</h6>
                 <h6>% Change: {{com1.percentage}}</h6>
+                <p>Duration: 2 weeks</p>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards" style="background-color:#F0E68C;">
@@ -50,6 +51,7 @@
                 <h6>Minimum investment amount: ${{com3.price}}</h6>
                 <h6>Expected return: ${{com3.expected_return}}</h6>
                 <h6>% Change: {{com3.percentage}}</h6>
+                <p>Duration: 2 weeks</p>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             <div class="movers-cards" style="background-color:silver;">
@@ -57,6 +59,7 @@
                 <h6>Minimum investment amount: ${{com2.price}}</h6>
                 <h6>Expected return: ${{com2.expected_return}}</h6>
                 <h6>% Change: {{com2.percentage}}</h6>
+                <p>Duration: 2 weeks</p>
                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>     
             <div class="movers-cards" style="background-color:#fdedd4;">
@@ -64,7 +67,8 @@
                 <h6 style="color:#000">Minimum investment amount: ${{com4.price}}</h6>
                 <h6 style="color:#000">Expected return: ${{com4.expected_return}}</h6>
                 <h6 style="color:#000">% Change: {{com4.percentage}}</h6>
-               <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
+                <p>Duration: 2 weeks</p>
+                <nuxt-link to="deposit"><button>Invest Now</button></nuxt-link> 
             </div>
             
             
