@@ -318,7 +318,7 @@
       >
         <i class="fab fa-whatsapp whatsapp-icon"></i>
       </a> -->
-      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+18484660886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
+      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+1848466886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
     
   </div>
