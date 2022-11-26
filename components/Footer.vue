@@ -68,8 +68,8 @@
         </div>
     </div>
     <div class="footer-closer">
-        <span>Legal notice</span> <span>Privacy policy</span> <span>Terms & Conditions</span>
-        <span>Whistleblower</span> <span>Bug Bounty</span> <span>Cookie settings</span>
+         <span>Privacy policy</span> <span>Terms & Conditions</span>
+        <span>Email us @ contact@paybay-invest.com</span> 
         <div class="bitpanda">
            <span>&#169; 2022 Pay Bay Invest</span> 
         </div>
@@ -113,7 +113,7 @@
         color: white;
         display: grid;
         padding: 1rem 5rem;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+        grid-template-columns:  1fr 1fr   1fr 1fr;
     }
     .bitpanda{
         text-align: right;

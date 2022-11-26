@@ -41,7 +41,13 @@ export default {
       },
       {
         src: "https://cdn.amcharts.com/lib/5/themes/Animated.js"
-      }
+      },
+      {
+        hid: 'tawk.to',
+        src:
+            'https://embed.tawk.to/63813d4cb0d6371309d12648/1giodetl3',
+        defer: true
+    }
     ]
   },
   generate: {

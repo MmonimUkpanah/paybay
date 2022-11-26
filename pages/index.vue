@@ -318,15 +318,23 @@
       >
         <i class="fab fa-whatsapp whatsapp-icon"></i>
       </a> -->
+      <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/63813d4cb0d6371309d12648/1giodetl3';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+      })();
+      </script>
       <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+1848466886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
     
   </div>
   
 </template>
-<script>
-
-</script>
 <script>
 
   export default {
@@ -919,6 +927,7 @@ function testScroll() {
         grid-template-columns: 1fr 1fr 1fr;
         padding: 3rem;
         text-align: center;
+        border-radius: 9px;
       }
       .counter h3, .counter h2{
         color: white;
