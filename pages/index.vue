@@ -329,7 +329,7 @@
       s0.parentNode.insertBefore(s1,s0);
       })();
       </script>
-      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+1848466-0886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
+      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+18484660886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
     
   </div>
