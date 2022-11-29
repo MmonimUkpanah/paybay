@@ -329,7 +329,7 @@
       s0.parentNode.insertBefore(s1,s0);
       })();
       </script>
-      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+1848466886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
+      <a  class="whatsapp_float" target="_blank" rel="noopener noreferrer" href="https://wa.me/+1848466-0886"><font-awesome-icon class="whatsapp-icon" :icon="['fab', 'whatsapp']" /></a> 
     <Footer/>
     
   </div>
@@ -911,7 +911,7 @@ function testScroll() {
           text-align: center;
           font-size: 30px;
           box-shadow: 2px 2px 3px #999;
-          z-index: 100;
+          z-index: 100; 
       }
 
       .whatsapp-icon {
