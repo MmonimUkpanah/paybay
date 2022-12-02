@@ -197,6 +197,7 @@
             message: "Withdraw successfull!",
             type: "success",
             });
+            this.getPortfolio()
             console.log(response)
             
         } catch (error) {
@@ -207,7 +208,7 @@
           console.log(error);
         }
         finally {
-          this.bank = {};
+          this.withdrawalInfo = {};
           this.amount = null
         }
         }
