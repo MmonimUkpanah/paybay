@@ -146,6 +146,7 @@
           bank_country:'',
           additional_instructions:'',
           amount:null,
+          dashboard:null
         },
         
         baseUrl: "https://paybay-invest.herokuapp.com/api/",
@@ -158,6 +159,7 @@
           this.portfolio = response.data;
        this.value = Number(this.portfolio[0].profile_value);
         console.log(this.portfolio)
+        this.withdrawalInfo.dashboard = this.value
         } catch (error) {
           console.log(error);
         }
@@ -181,9 +183,9 @@
         this.bank = {};
       },
       withdrawFunds(){
-        console.log(this.amount)
+        console.log(this.withdrawalInfo.amount)
         console.log(this.value)
-        if (this.value <= this.amount){
+        if (this.value <= this.withdrawalInfo.amount){
             this.$message({
             message: "Insufficient funds",
             type: "warning",
@@ -196,7 +198,7 @@
             type: "success",
             });
             console.log(response)
-            this.$router.push("/dashboard")
+            
         } catch (error) {
           this.$message({
             message: error.response.data,
