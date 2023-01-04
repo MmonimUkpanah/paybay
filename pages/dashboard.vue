@@ -1,5 +1,29 @@
 <template>
   <div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-3" id="staticBackdropLabel">Change Password</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" @submit.prevent="changePassword()">
+                            <label for="">Old Password</label>
+                            <input type="password" v-model="passwordDetails.old_password">
+                            <label for="">New Password</label>
+                            <input type="password" v-model="passwordDetails.password">
+                            <label for="">Confirm Password</label>
+                            <input type="password" v-model="passwordDetails.password2"> 
+                            <button type="submit">Change Password</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
     <div>
        <Navbar4/> 
     </div>
@@ -8,6 +32,7 @@
         <div style="height:2rem">
 
         </div>
+        
         <div class="father">
             <div class="dash-leftsidebar">
             <div class="dash-leftsidebar-header">
@@ -27,11 +52,13 @@
                     <p><font-awesome-icon class="icon" :icon="['fa', 'home']" /> Home</p>
                     <p><font-awesome-icon class="icon" :icon="['fa', 'server']" /> Farms</p>
                     <p><font-awesome-icon class="icon" :icon="['fa', 'clock']" /> Pools</p>
-                    <p><font-awesome-icon class="icon" :icon="['fa', 'exchange']" /> Exchange</p>
+                    <p data-bs-toggle="modal" data-bs-target="#staticBackdrop"><font-awesome-icon class="icon" :icon="['fa', 'gear']" /> Change Password</p>
                 </div>
             </div>
         </div>
+        
         <div class="dash-center">
+           
             <div>
                 <client-only>
                     <Chart/>
@@ -240,6 +267,11 @@ export default {
         chartOptions: {
           responsive: true,
           maintainAspectRatio: false
+        },
+        passwordDetails:{
+            old_password:'',
+            password:'',
+            password2:'',
         }
     };
   },
@@ -297,16 +329,23 @@ computedCrypto() {
         console.log(res.data)
         this.crypto_data= res.data
       },
-    //   async getItems() {
-    //     try {
-    //       const response = await this.$axios.get(this.baseUrl + "items/");
-    //       this.items = response.data;
-    //       this.dates = this.items.map(item => item.date);
-    //       this.prices = this.items.map(item => item.value);
-    //     } catch (error) {
-    //       console.log(error);   
-    //     }
-    //   },
+      async changePassword() {
+        try {
+          const response = await this.$axios.put(`https://paybay-invest.herokuapp.com/api/change-password/${this.$auth.user.id}/`,this.passwordDetails);
+          this.$message({
+            message: "Password Changed!",
+            type: "success",
+            });
+            this.passwordDetails = {}
+          console.log(response)
+        } catch (error) {
+            this.$message({
+            message: error.response.data,
+            type: "warning",
+            });
+          console.log(error);   
+        }
+      },
       
   },
 
@@ -600,6 +639,35 @@ computedCrypto() {
         grid-template-columns: 1fr 3fr 1fr;
         grid-gap: 2rem;
     }
+    .modal{
+        left: 30%;
+        right: 30%;
+        top: 5rem;
+    }
+    
+    .modal-body input{
+        display: block;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    .modal-body form{
+        padding: 1rem;
+    }
+    .modal-body form button{
+        width: 100%;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+        background: #16a858;
+        color: white;
+        border: 2px solid #16a858;
+    }
+    .modal-header{
+        padding: 0rem 1rem ;
+    }
+    .modal-header h1{
+        color: #16a858;
+    }
+
 
 
     @media(max-width:576px){
@@ -686,12 +754,21 @@ computedCrypto() {
     .dash-rightsidebar-header{
         padding: 10px;
     }
-    
+    .modal{
+        left: 0%;
+        right: 0%;
+        top: 5rem;
+    }
     }
 
 
 
     @media(min-width:577px) and (max-width:1200px){
+        .modal{
+        left: 15%;
+        right: 15%;
+        top: 5rem;
+    }
         .father{
         display: grid;
         grid-template-columns: 1fr;
