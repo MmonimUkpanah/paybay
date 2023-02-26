@@ -57,7 +57,7 @@
           com2:{},
           com3:{},
           com4:{},
-        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+        baseUrl: "https://paybay-invest.onrender.com/api/",
         portfolio:{},
         value:'',
         crypto_data:[],

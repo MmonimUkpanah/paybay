@@ -55,7 +55,7 @@
     },
     data() {
       return {
-        baseUrl: "https://paybay-invest.herokuapp.com/api/",
+        baseUrl: "https://paybay-invest.onrender.com/api/",
         signupinfo:{
             email:'',
             first_name:'',

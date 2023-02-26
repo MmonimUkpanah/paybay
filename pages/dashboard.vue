@@ -237,7 +237,7 @@ export default {
         com2:{},
         com3:{},
         com4:{},
-      baseUrl: "https://paybay-invest.herokuapp.com/api/",
+      baseUrl: "https://paybay-invest.onrender.com/api/",
       portfolio:{},
       value:'',
       items:[],
@@ -331,7 +331,7 @@ computedCrypto() {
       },
       async changePassword() {
         try {
-          const response = await this.$axios.put(`https://paybay-invest.herokuapp.com/api/change-password/${this.$auth.user.id}/`,this.passwordDetails);
+          const response = await this.$axios.put(`https://paybay-invest.onrender.com/api//change-password/${this.$auth.user.id}/`,this.passwordDetails);
           this.$message({
             message: "Password Changed!",
             type: "success",

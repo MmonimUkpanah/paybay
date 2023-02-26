@@ -98,7 +98,7 @@ export default {
     ]
   ],
   axios: {
-    baseURL: "https://paybay-invest.herokuapp.com/api/",
+    baseURL: "https://paybay-invest.onrender.com/api/",
     // headers: {
     //   'Access-Control-Allow-Origin': '*',
     //   'Access-Control-Allow-Headers': 'Content-Type',
