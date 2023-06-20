@@ -349,7 +349,7 @@ if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.q=function(){v3._q.push
         script:[{  
           src:''
         }],
-        baseUrl: "https://paybay-invest.onrender.com/api/",
+        baseUrl: "https://paybay-6ipm.onrender.com/api/",
       }
     },
     mounted(){

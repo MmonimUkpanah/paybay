@@ -55,7 +55,7 @@
     },
     data() {
       return {
-        baseUrl: "https://paybay-invest.onrender.com/api/",
+        baseUrl: "https://paybay-6ipm.onrender.com/api/",
         signupinfo:{
             email:'',
             first_name:'',

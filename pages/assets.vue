@@ -57,7 +57,7 @@
           com2:{},
           com3:{},
           com4:{},
-        baseUrl: "https://paybay-invest.onrender.com/api/",
+        baseUrl: "https://paybay-6ipm.onrender.com/api/",
         portfolio:{},
         value:'',
         crypto_data:[],
